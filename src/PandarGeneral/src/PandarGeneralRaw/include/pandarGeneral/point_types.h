@@ -20,17 +20,19 @@
 #include <pcl/point_types.h>
 
 struct PointXYZIT {
-  PCL_ADD_POINT4D
-  uint8_t intensity;
+  PCL_ADD_POINT4D;
+  PCL_ADD_RGB;
+  float intensity;
+  uint16_t ring;
+  uint32_t label;
+  uint16_t lidar_id;
   double timestamp;
-  uint16_t ring;                   ///< laser ring number
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW  // make sure our new allocators are aligned
 } EIGEN_ALIGN16;
 
 POINT_CLOUD_REGISTER_POINT_STRUCT(
-    PointXYZIT,
-    (float, x, x)(float, y, y)(float, z, z)(uint8_t, intensity, intensity)(
-        double, timestamp, timestamp)(uint16_t, ring, ring))
+    PointXYZIT,(float, x, x)(float, y, y)(float, z, z)(uint32_t, rgb, rgb)(float, intensity, intensity)
+    (uint16_t, ring, ring)(uint32_t, label, label)(uint16_t, lidar_id, lidar_id)(double, timestamp, timestamp))
 
 typedef PointXYZIT PPoint;
 typedef pcl::PointCloud<PPoint> PPointCloud;
