@@ -1,6 +1,6 @@
 <launch>
 	<arg name="pcap_file"  default=""/>
-	<arg name="server_ip" default=""/>
+	<arg name="server_ip" default="10.136.201.201"/>
 	<arg name="server_port"  default="9870"/>
 	<arg name="lidar_recv_port"  default="2368"/>
 	<arg name="gps_port"  default="10110"/>
